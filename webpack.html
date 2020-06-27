@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 引言 -->
+  <!-- 将开发完的项目放到外网服务器上进行托管，开发中的项目都是在局域网运行的 -->
+  <!-- 目前写的.vue文件和es6语法，浏览器是不识别的，浏览器识别js，html，css -->
+  <!-- webpack提供了模块的实现，都是异步加载js模块的，js的资源都是在服务器上的，webpac是基于node.js，遵循common.js规范-->
+  <!-- node.js出现，commonJs：导入：reuqire('模块')；导出：module.exports，同步加载js模块：因为node.js是服务端运行环境 -->
+  <!-- es6模块化规范：导入imoprt xxx from '模块'；导出：export default 模块，也是同步加载js模块-->
+  <!-- 在之前开发的项目中之所以能够识别，是因为vue-cli基于webpack -->
+
+
+  <!-- 介绍 -->
+  <!-- 是一个js模块打包工具 -->
+  <!-- 安装加载器后，可以对任何资源进行打包 -->
+  <!-- 安装插件后，可以对打包后的结果进行修改 -->
+  <!-- 提供了服务器功能，可以对打包后的结果进行预览 -->
+  <!-- 提供开发阶段提高开发效率的功能，自动更新，热更新等功能 -->
+
+
+  <!-- webpack安装 -->
+  <!-- webpack安装不推荐全局安装，在项目下面进行安装 -->
+  <!-- 必须得有package.json文件 npm init -y  将包记录在package.json中 -->
+  <!-- 步骤：1.npm i webpack webpack-cli -D 
+            （在全局输出webpack是不起作用的，因为没有全局安装webpack）
+            2.但是可以间接的使用，在package.json中在scripts中配置一个脚本"build"="webpack"  使用npm run build执行脚本
+          -->
+
+
+
+  <!-- webpack使用 -->
+  <!-- 当运行npm run build的时候会报错，缺少配置 -->
+  <!-- 步骤：1.首先在项目文件夹下创建一个文件：webpack.config.js提供webpack的配置-->
+
+
+  <!-- 实战：打包部署 -->
+  <!-- 使用npm run build 进行打包，因为vue-cli是基于webpack，所以可以直接使用，所有的将变为静态资源 -->
+
+  <!-- 自己启动服务器测试：
+        1.创建一个文件夹server，将打包好的所有文件拷贝到server中
+        2.在server中启动服务（黑窗口），使用命令serve，然后再通过localhost：5000访问
+        补充：serve是一个命令行工具，可以作为前端打包资源测试使用
+              1.npm i serve -g 
+              2.切到dist目录，执行serve-->
+
+
+  <!-- 打包优化：首屏加载慢
+        1.路由懒加载：能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件
+           const Login = () =>import('@/views/login')
+        2.使用CDN资源，在项目中的是使用：vue.config.js中配置configureWebpack：{}，
+          configureWebpack是书写webpack的位置，将webpack中的配置enternals:{key包名 value包暴露全局变量}
+          enternals:{echarts:"echarts"}
+        -->
+</body>
+</html>
